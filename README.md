@@ -27,11 +27,12 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
 
-##Tech Used
+## Tech Used
 - Next.js
 - tRPC
 - Puppeteer
 - OpenAI
 
 ## Results
-![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
+
+!['Results']([https://postimg.cc/7GXsj409](https://i.postimg.cc/mkWvz2rv/Screenshot-2022-12-14-at-23-25-43-Youtube-Title-Generator.png))
