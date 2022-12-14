@@ -35,4 +35,4 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 ## Results
 
-!['Results']([https://postimg.cc/7GXsj409](https://i.postimg.cc/mkWvz2rv/Screenshot-2022-12-14-at-23-25-43-Youtube-Title-Generator.png))
+!['Results'](https://i.postimg.cc/mkWvz2rv/Screenshot-2022-12-14-at-23-25-43-Youtube-Title-Generator.png)
