@@ -1,6 +1,8 @@
 import { Configuration, OpenAIApi } from "openai";
-import puppeteer, { type Browser } from "puppeteer";
+// import puppeteer, { type Browser } from "puppeteer";
 import { z } from "zod";
+import chromium from "chrome-aws-lambda";
+import playwright from "playwright-core";
 
 import { router, publicProcedure } from "../trpc";
 
@@ -59,9 +61,19 @@ export const generateRouter = router({
 const URL = "https://www.youtube.com";
 
 const getTitlesFromYoutube = async (alias: string): Promise<VideoData[]> => {
-  const browser: Browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto(`${URL}/${alias}/videos`);
+  const browser = await playwright.chromium.launch({
+    args: [...chromium.args, "--font-render-hinting=none"], // This way fix rendering issues with specific fonts
+    executablePath:
+      process.env.NODE_ENV === "production"
+        ? await chromium.executablePath
+        : "/usr/local/bin/chromium",
+    headless: process.env.NODE_ENV === "production" ? chromium.headless : true,
+  });
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  await page.goto(`${URL}/${alias}/videos`, {
+    waitUntil: "load",
+  });
 
   const videoData = await page.evaluate(() => {
     const videoId = Array.from(
